@@ -9,15 +9,26 @@ require("mason").setup({
   }
 })
 
--- LSP settings
-local lspconfig = require('lspconfig')
+-- Get capabilities for LSP
 local capabilities = require('cmp_nvim_lsp').default_capabilities()
 
 -- Lua
-lspconfig.lua_ls.setup({ capabilities = capabilities })
+vim.lsp.config('lua_ls', {
+  capabilities = capabilities,
+  root_markers = { '.luarc.json', '.luarc.jsonc', '.luacheckrc', '.stylua.toml', 'stylua.toml', 'selene.toml', 'selene.yml', '.git' },
+})
 
 -- Python
-lspconfig.pyright.setup({ capabilities = capabilities })
+vim.lsp.config('pyright', {
+  capabilities = capabilities,
+  root_markers = { 'pyproject.toml', 'setup.py', 'setup.cfg', 'requirements.txt', 'Pipfile', '.git' },
+})
 
 -- JavaScript/TypeScript
-lspconfig.ts_ls.setup({ capabilities = capabilities })
+vim.lsp.config('ts_ls', {
+  capabilities = capabilities,
+  root_markers = { 'package.json', 'tsconfig.json', 'jsconfig.json', '.git' },
+})
+
+-- Enable the servers
+vim.lsp.enable({'lua_ls', 'pyright', 'ts_ls'})

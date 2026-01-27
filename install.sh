@@ -1,8 +1,10 @@
 #!/bin/bash
 
-cd ~/.config/nvim/pack/x/start/ || exit
+PACK_DIR="$HOME/Code/nvim-config/pack/x/start"
+mkdir -p "$PACK_DIR"
+cd "$PACK_DIR" || exit
 
-echo "Installing Neovim plugins..."
+echo "Installing Neovim plugins to $PACK_DIR..."
 
 echo "Cloning nvim-treesitter..."
 git clone https://github.com/nvim-treesitter/nvim-treesitter
@@ -18,6 +20,9 @@ git clone https://github.com/hrsh7th/nvim-cmp
 
 echo "Cloning cmp-nvim-lsp..."
 git clone https://github.com/hrsh7th/cmp-nvim-lsp
+
+echo "Cloning cmp-buffer..."
+git clone https://github.com/hrsh7th/cmp-buffer
 
 echo "Cloning oil.nvim..."
 git clone https://github.com/stevearc/oil.nvim
@@ -38,12 +43,9 @@ echo "Cloning lualine.nvim..."
 git clone https://github.com/nvim-lualine/lualine.nvim
 
 echo "Cloning which-key.nvim..."
-git clone https://github.com/folke/which-key.nvim
+git clone https://github.com/folke/folke/which-key.nvim
 
 echo "Cloning nvim-autopairs..."
 git clone https://github.com/windwp/nvim-autopairs
-
-echo "Cloning cmp-buffer..."
-git clone https://github.com/hrsh7th/cmp-buffer
 
 echo "Done! All plugins installed."

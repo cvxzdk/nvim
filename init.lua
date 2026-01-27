@@ -1,7 +1,16 @@
+-- Ensure pack plugins are loaded (Windows compatible)
+local pack_path = vim.fn.stdpath('config') .. '\\pack\\x\\start'
+vim.opt.packpath:prepend(vim.fn.stdpath('config'))
+
+-- Add lua paths for Windows
+local config_path = vim.fn.stdpath('config')
+package.path = package.path .. ';' .. config_path .. '\\?.lua'
+package.path = package.path .. ';' .. config_path .. '\\lua\\?.lua'
+
 require('config')
 require('keymap')
 
--- Add these instead:
+-- Load plugin configs
 require('plugins.treesitter')
 require('plugins.lsp')
 require('plugins.cmp')
