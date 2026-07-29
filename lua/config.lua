@@ -1,10 +1,11 @@
 -- UI
 vim.opt.number = true
-vim.opt.relativenumber = true
+vim.opt.relativenumber = false
 vim.opt.cursorline = true
 vim.opt.termguicolors = true
 vim.opt.signcolumn = "yes"
 vim.opt.showmode = false
+vim.opt.wrap = false
 
 -- Indentation
 vim.opt.tabstop = 2
