@@ -1,16 +1,34 @@
 require('nvim-treesitter.config').setup({
-  -- Install parsers synchronously (only applied to `ensure_installed`)
+  ensure_installed = {
+    'bash',
+    'css',
+    'dockerfile',
+    'html',
+    'java',
+    'javascript',
+    'jsx',
+    'json',
+    'lua',
+    'markdown',
+    'markdown_inline',
+    'python',
+    'sql',
+    'svelte',
+    'toml',
+    'tsx',
+    'typescript',
+    'vim',
+    'vimdoc',
+    'vue',
+    'yaml',
+  },
   sync_install = false,
-  
-  -- Automatically install missing parsers when entering buffer
   auto_install = true,
-
   highlight = {
     enable = true,
     additional_vim_regex_highlighting = false,
   },
-
   indent = {
-    enable = true
+    enable = true,
   },
 })

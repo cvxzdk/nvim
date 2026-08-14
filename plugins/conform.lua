@@ -1,0 +1,26 @@
+require('conform').setup({
+  formatters_by_ft = {
+    javascript = { 'prettierd' },
+    javascriptreact = { 'prettierd' },
+    typescript = { 'prettierd' },
+    typescriptreact = { 'prettierd' },
+    vue = { 'prettierd' },
+    svelte = { 'prettierd' },
+    html = { 'prettierd' },
+    css = { 'prettierd' },
+    scss = { 'prettierd' },
+    json = { 'prettierd' },
+    jsonc = { 'prettierd' },
+    yaml = { 'prettierd' },
+    markdown = { 'prettierd' },
+    toml = { 'prettierd' },
+    python = { 'ruff_format' },
+    bash = { 'shfmt' },
+    sh = { 'shfmt' },
+    java = { 'google-java-format' },
+  },
+  format_on_save = {
+    timeout_ms = 1000,
+    lsp_format = 'fallback',
+  },
+})

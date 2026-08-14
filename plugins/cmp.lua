@@ -1,6 +1,12 @@
 local cmp = require('cmp')
 
 cmp.setup({
+  performance = {
+    debounce = 150,
+    throttle = 60,
+    fetching_timeout = 50,
+    max_view_entries = 200,
+  },
   mapping = cmp.mapping.preset.insert({
     ['<C-b>'] = cmp.mapping.scroll_docs(-4),
     ['<C-f>'] = cmp.mapping.scroll_docs(4),
@@ -13,5 +19,14 @@ cmp.setup({
   sources = cmp.config.sources({
     { name = 'nvim_lsp' },
     { name = 'buffer' },
-  })
+    { name = 'path' },
+  }),
+})
+
+cmp.setup.cmdline(':', {
+  mapping = cmp.mapping.preset.cmdline(),
+  sources = cmp.config.sources(
+    { { name = 'path' } },
+    { { name = 'cmdline' } }
+  ),
 })
